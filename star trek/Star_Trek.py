@@ -1,3 +1,5 @@
-import pandas as import pd
-from matplotlib import as plt
+import pandas as pd
+import matplotlib as plt
 
+if man == 3:
+    print("man is currently three")
