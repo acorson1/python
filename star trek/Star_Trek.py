@@ -1,5 +1,3 @@
-import pandas as pd
-import matplotlib as plt
-
+man = input("please enter the desired value")
 if man == 3:
     print("man is currently three")
