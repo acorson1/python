@@ -42,7 +42,7 @@ def select_all_from_season(conn, season):
 
 
 def main():
-    database = r""
+    database = r"python/star trek/shows.db"
 
     conn = create_connection(database)
     with conn:
