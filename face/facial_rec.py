@@ -27,5 +27,4 @@ def detect_faces_and_display():
 
     cap.release()
     cv2.destroyAllWindows()
-
-detect_faces_and_display()
+    return faces

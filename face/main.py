@@ -5,22 +5,19 @@ import cv2
 
 def run_application():
     try:
-        functions_to_execute = [test.option_select, facial_rec.detect_faces_and_display]
-        for func in functions_to_execute:
-            func()
+        face_save()
     except ImportError as e:
         print(f"Error importing module: {e}")
     except Exception as e:
         print(f"Error executing function: {e}")
         
 def face_save():
-    haar_cascade = facial_rec.recognize_face()
-    
-    if haar_cascade is not None:
-        recognized_cascade = haar_cascade
+    faces = facial_rec.detect_faces_and_display()
+    if faces is not None:
+        recognized_cascade = faces
         
         # saves as image file
-        cascade_image=cv2.imwrite('recognized_faces/cascade_{}.png'.format(datetime.datetime.now().strftime('%Y%m%d%H%M%S')), cascade_image)
+        cv2.imwrite('/face/recog_faces/cascade_{}.png'.format(datetime.datetime.now().strftime('%d%H%M%S')), recognized_cascade)
         return recognized_cascade
 
 if __name__ == "__main__":
