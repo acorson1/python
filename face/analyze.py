@@ -1,4 +1,5 @@
-import CV2
+import cv2
 
-Def isolate():
-   
+
+def isolate():
+    img = cv2.imread("")
