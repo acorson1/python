@@ -1,29 +1,7 @@
 import cv2
 import numpy as np
 
-def run_application():
-    try:
-        face_save()
-    except ImportError as e:
-        print(f"Error importing module: {e}")
-    except Exception as e:
-        print(f"Error executing function: {e}")
-        
-def face_save():
-    faces, img = detect_faces_and_display()
-    if faces is not None:
-        count = 0
-        for (x,y,w,h) in face_save:
-            face = img[y:y+h, x:x+w] #slice the face from image        
-            # saves as image file
-            cv2.imwrite(str(count)+'.jpg', face)
-            count+=1
-            
-    
-if __name__ == "__main__":
-    run_application()
-    
-def detect_faces_and_display():
+def detect_faces():
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     cap = cv2.VideoCapture(0)
 
@@ -51,3 +29,26 @@ def detect_faces_and_display():
     cap.release()
     cv2.destroyAllWindows()
     return faces,img
+
+def run_application():
+    try:
+        face_save()
+    except ImportError as e:
+        print(f"Error importing module: {e}")
+    except Exception as e:
+        print(f"Error executing function: {e}")
+        
+def face_save():
+    faces, img = detect_faces()
+    if faces is not None:
+        count = 0
+        for (x,y,w,h) in face_save:
+            face = img[y:y+h, x:x+w] #slice the face from image        
+            # saves as image file
+            cv2.imwrite(str(count)+'.jpg', face)
+            count+=1
+            
+    
+if __name__ == "__main__":
+    run_application()
+    
